@@ -94,6 +94,7 @@ body {
 .result.enlarge {
     transform: scale(1.1);
     z-index: 1;
+    width: 80%;
     position: relative;
 }
 
