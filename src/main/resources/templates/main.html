@@ -3,32 +3,50 @@
 <head>
     <title>Touchit!</title>
     <link rel="stylesheet" type="text/css" href="../static/main.css">
-    <link th:href="@{/main.css}" href="../static/main.css" rel="stylesheet">
+    <script>
+        function showDescription(resultId) {
+            // Hide all other results
+            var results = document.getElementsByClassName("result");
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                if (result.id !== resultId) {
+                    result.style.display = "none";
+                }
+            }
+
+            // Show the description for the clicked result
+            var description = document.getElementById(resultId + "-description");
+            description.style.display = "block";
+        }
+    </script>
 </head>
 <body>
 <div class="header">
     <div class="logo">
         <img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Company Logo">
     </div>
-
 </div>
 
 <div class="search-bar">
     <input type="text" placeholder="Search Products">
     <button type="submit">Search</button>
 </div>
+
 <div class="search-results">
-    <div class="result">
+    <div class="result" id="result1" onclick="showDescription('result1')">
         <h3>Search Result 1</h3>
         <p>Description of the search result goes here.</p>
+        <p id="result1-description" style="display: none;">Description of the product goes here.</p>
     </div>
-    <div class="result">
+    <div class="result" id="result2" onclick="showDescription('result2')">
         <h3>Search Result 2</h3>
         <p>Description of the search result goes here.</p>
+        <p id="result2-description" style="display: none;">Description of the product goes here.</p>
     </div>
-    <div class="result">
+    <div class="result" id="result3" onclick="showDescription('result3')">
         <h3>Search Result 3</h3>
         <p>Description of the search result goes here.</p>
+        <p id="result3-description" style="display: none;">Description of the product goes here.</p>
     </div>
 </div>
 </body>
