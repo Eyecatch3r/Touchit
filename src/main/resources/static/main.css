@@ -73,24 +73,37 @@ body {
 .search-results {
     max-width: 800px;
     margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .result {
     background-color: #f1f1f1;
     padding: 20px;
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.result:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
 }
 
 .result.enlarge {
     transform: scale(1.1);
+    z-index: 1;
+    position: relative;
+}
+
+.result:not(.enlarge) {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result:hover:not(.enlarge) {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .search-results {
     position: relative;
