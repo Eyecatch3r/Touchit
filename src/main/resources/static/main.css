@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.header {
+    background-color: #fdfdfd; /* Change the black color to a light gray, e.g., #222222 */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+    margin-right: 10px;
+    filter: grayscale(100%);
+}
+
+.search-bar {
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #000000;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    border-radius: 20px; /* Add rounded corners */
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+    color: #000000;
+}
+
+.search-bar button {
+    background-color: #222222; /* Change the black color to a light gray, e.g., #222222 */
+    color: #ffffff;
+    border: none;
+    padding: 12px 12px;
+    cursor: pointer;
+    border-radius: 18px; /* Add rounded corners */
+}
+
+.search-bar:focus-within {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box-shadow when the search bar or its input is in focus */
+}
+
+.search-bar:hover {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.search-bar:hover input[type="text"] {
+    color: #ffffff;
+}
