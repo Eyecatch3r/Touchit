@@ -3,9 +3,9 @@
 <head>
     <title>Touchit!</title>
     <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
     <script>
         function showDescription(resultId) {
-            // Hide all other results
             var results = document.getElementsByClassName("result");
             for (var i = 0; i < results.length; i++) {
                 var result = results[i];
@@ -14,9 +14,34 @@
                 }
             }
 
-            // Show the description for the clicked result
             var description = document.getElementById(resultId + "-description");
             description.style.display = "block";
+
+            var returnButton = document.getElementById("return-button");
+            returnButton.style.display = "block";
+
+            var clickedResult = document.getElementById(resultId);
+            clickedResult.classList.add("enlarge");
+        }
+
+        function returnToResults(resultId) {
+            var results = document.getElementsByClassName("result");
+            for (var i = 0; i < results.length; i++) {
+                results[i].style.display = "block";
+            }
+
+            var descriptions = document.getElementsByClassName("description");
+            for (var i = 0; i < descriptions.length; i++) {
+                descriptions[i].style.display = "none";
+            }
+
+            var returnButton = document.getElementById("return-button");
+            returnButton.style.display = "none";
+
+            var enlargedResult = document.getElementsByClassName("enlarge");
+            if (enlargedResult.length > 0) {
+                enlargedResult[0].classList.remove("enlarge");
+            }
         }
     </script>
 </head>
@@ -33,20 +58,24 @@
 </div>
 
 <div class="search-results">
+    <div id="return-button" class="return-button" onclick="returnToResults('result1')" style="display: none;">
+        <button class="return-button">Go Back</button>
+    </div>
     <div class="result" id="result1" onclick="showDescription('result1')">
         <h3>Search Result 1</h3>
         <p>Description of the search result goes here.</p>
-        <p id="result1-description" style="display: none;">Description of the product goes here.</p>
+        <p id="result1-description" class="description" style="display: none;">Description of the product goes here.</p>
     </div>
     <div class="result" id="result2" onclick="showDescription('result2')">
         <h3>Search Result 2</h3>
         <p>Description of the search result goes here.</p>
-        <p id="result2-description" style="display: none;">Description of the product goes here.</p>
+        <p id="result2-description" class="description" style="display: none;">Description of the product goes here.</p>
+
     </div>
     <div class="result" id="result3" onclick="showDescription('result3')">
         <h3>Search Result 3</h3>
         <p>Description of the search result goes here.</p>
-        <p id="result3-description" style="display: none;">Description of the product goes here.</p>
+        <p id="result3-description" class="description" style="display: none;">Description of the product goes here.</p>
     </div>
 </div>
 </body>

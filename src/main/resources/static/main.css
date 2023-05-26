@@ -1,3 +1,5 @@
+/* CSS */
+
 body {
     margin: 0;
     padding: 0;
@@ -78,19 +80,41 @@ body {
     padding: 20px;
     margin-bottom: 10px;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .result:hover {
-    background-color: #dcdcdc; /* Change the color to make the result stand out on hover */
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.result h3 {
-    margin: 0;
-    color: #222222;
+.result.enlarge {
+    transform: scale(1.1);
+}
+.search-results {
+    position: relative;
 }
 
-.result p {
-    margin-top: 10px;
-    color: #555555;
+.return-button {
+    position: relative;
+    top: -7px;
+    left: 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.return-button button {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    padding: 12px 12px;
+    cursor: pointer;
+    border-radius: 18px;
+    transition: transform 0.3s ease;
+}
+
+.return-button button:hover {
+    transform: scale(1.1);
 }
