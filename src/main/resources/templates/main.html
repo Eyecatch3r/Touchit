@@ -4,92 +4,7 @@
     <title>Touchit!</title>
     <link rel="icon" href="../static/img/logo.png" th:src="@{/img/logo.png}">
     <link rel="stylesheet" type="text/css" href="../static/main.css" th:href="@{/main.css}">
-    <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.querySelector(".search-bar input");
-            const searchResults = document.getElementsByClassName("result");
-
-            function searchProducts() {
-                const keyword = searchInput.value.toLowerCase();
-                let found = false;
-
-                Array.from(searchResults).forEach(function (result) {
-                    const resultId = result.id.toLowerCase();
-                    const resultName = result.getElementsByTagName("h3")[0].innerText.toLowerCase();
-                    const resultDescription = result.getElementsByTagName("p")[0].innerText.toLowerCase();
-
-                    if (resultId.includes(keyword) || resultName.includes(keyword) || resultDescription.includes(keyword)) {
-                        result.style.display = "block";
-                        found = true;
-                    } else {
-                        result.style.display = "none";
-                    }
-                });
-
-                if (!found) {
-                    const noResultsMessage = document.getElementById("no-results-message");
-                    noResultsMessage.style.display = "block";
-                } else {
-                    const noResultsMessage = document.getElementById("no-results-message");
-                    noResultsMessage.style.display = "none";
-                }
-            }
-
-            searchInput.addEventListener("input", searchProducts);
-        });
-
-        function animateSearchResults() {
-            var results = document.getElementsByClassName("result");
-
-            for (var i = 0; i < results.length; i++) {
-                var result = results[i];
-                result.classList.add("animate");
-            }
-        }
-        function showDescription(resultId) {
-            var results = document.getElementsByClassName("result");
-            for (var i = 0; i < results.length; i++) {
-                var result = results[i];
-                if (result.id !== resultId) {
-                    result.style.display = "none";
-                }
-                else {
-                    result.removeAttribute("onclick");
-                }
-            }
-
-            var description = document.getElementById(resultId + "-description");
-            description.style.display = "block";
-
-            var returnButton = document.getElementById("return-button");
-            returnButton.style.display = "block";
-
-            var clickedResult = document.getElementById(resultId);
-            clickedResult.classList.add("enlarge");
-        }
-
-        function returnToResults(resultId) {
-            var results = document.getElementsByClassName("result");
-            for (var i = 0; i < results.length; i++) {
-                results[i].style.display = "block";
-                results[i].setAttribute("onclick", "showDescription('" + results[i].id + "')");
-            }
-
-            var descriptions = document.getElementsByClassName("description");
-            for (var i = 0; i < descriptions.length; i++) {
-                descriptions[i].style.display = "none";
-            }
-
-            var returnButton = document.getElementById("return-button");
-            returnButton.style.display = "none";
-
-            var enlargedResult = document.getElementsByClassName("enlarge");
-            if (enlargedResult.length > 0) {
-                enlargedResult[0].classList.remove("enlarge");
-            }
-        }
-    </script>
-
+    <script src="../static/main.js" defer></script>
 </head>
 <body onload="animateSearchResults()">
 <div class="header">
@@ -101,13 +16,11 @@
     </a>
 </div>
 
-
-    <label>
-        <div class="search-bar">
-        <input type="text" placeholder="Search Products">
-        </div>
-    </label>
-
+<label>
+    <div class="search-bar">
+            <input type="text" placeholder="Search Products">
+    </div>
+</label>
 
 <div class="search-results">
     <div id="return-button" class="return-button" onclick="returnToResults('result1')" style="display: none;">
@@ -124,6 +37,7 @@
         <h3>Search Result 2</h3>
         <p>Description of the search result goes here.</p>
         <p id="result2-description" class="description" style="display: none;">Description of the product goes here.</p>
+
     </div>
     <div class="result" id="result3" onclick="showDescription('result3')">
         <img src="../static/img/product3.jpg" th:src="@{/img/product3.png}" alt="Product 3" class="result-image">
@@ -139,6 +53,11 @@
 
 <footer class="footer">
     <p>&copy; Touchit!. All rights reserved.</p>
+    <div class="dark-mode-toggle">
+        <div class="toggle-message">Dark Mode</div>
+        <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+        <label for="darkModeToggle" class="toggle-label"></label>
+    </div>
 </footer>
 
 </body>

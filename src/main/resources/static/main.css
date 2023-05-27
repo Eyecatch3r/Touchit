@@ -219,3 +219,170 @@ body {
     opacity: 1; /* Show the text for the selected result */
     transition: opacity 0.3s ease-in-out;
 }
+body.dark-mode,
+.dark-mode .search-bar {
+    background-color: #222;
+    color: #fff;
+}
+.footer {
+    background-color: #f1f1f1;
+    color: #050505;
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    position: relative; /* Add position relative to the toggle container */
+}
+
+/* Add styles for the message bubble */
+.toggle-message {
+    position: absolute;
+    top: -40px; /* Adjust the distance from the toggle */
+    left: 50%; /* Position it horizontally in the middle */
+    transform: translateX(-50%);
+    background-color: #222;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0; /* Initially hide the message */
+    transition: opacity 0.3s ease;
+    right: -50px;
+}
+
+/* Update styles for dark mode */
+.dark-mode-toggle:hover .toggle-message {
+    opacity: 1; /* Show the message when toggle is hovered over */
+}
+
+/* Update styles for dark mode */
+.toggle-label:before {
+    content: "";
+    display: block;
+    position: relative;
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+    float: right;
+}
+
+/* Update styles for dark mode */
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #fff;
+}
+
+/* Update styles for dark mode */
+.toggle-checkbox:checked + .toggle-label:before {
+    transform: translateX(-20px);
+}
+
+/* Update styles for dark mode */
+.dark-mode .toggle-label {
+    background-color: #222;
+}
+
+/* Update styles for dark mode */
+.dark-mode .toggle-label:before {
+    background-color: #fff;
+}
+
+/* Update styles for dark mode */
+.dark-mode .toggle-message {
+    background-color: #fff;
+    color: #222;
+}
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: #888;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    float: right;
+    margin-right: 20px;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #66bb6a;
+}
+
+.toggle-checkbox:checked + .toggle-label:before {
+    transform: translateX(-20px);
+}
+
+.dark-mode .toggle-label {
+    background-color: #222;
+}
+
+.dark-mode .toggle-label:before {
+    background-color: #888;
+}
+
+.dark-mode .toggle-label:before {
+    transform: translateX(20px);
+}
+
+
+.dark-mode .header,
+.dark-mode .search-bar,
+.dark-mode .search-results,
+.dark-mode .footer {
+    border-color: #444;
+}
+
+.dark-mode .header a,
+.dark-mode .header,
+.dark-mode .search-bar input[type="text"],
+.dark-mode .search-bar button,
+.dark-mode .search-results .result,
+.dark-mode .no-results-message {
+    background-color: #444;
+}
+
+.dark-mode .header a,
+.dark-mode .footer p,
+.dark-mode .search-bar input[type="text"],
+.dark-mode .search-bar button,
+.dark-mode .search-results .result h3,
+.dark-mode .search-results .result p,
+.dark-mode .no-results-message {
+    color: #fff;
+}
+
+.dark-mode .search-results .result.enlarge img {
+    filter: brightness(100%);
+}
+
+.dark-mode .footer {
+    background-color: #111;
+}
+
+.dark-mode .return-button button {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+.dark-mode .logo img {
+    height: 100px;
+    margin-right: 10px;
+    filter: brightness(5140%);
+    transition: filter 0.5s ease;
+}
+
+
