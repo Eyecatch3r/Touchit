@@ -1,0 +1,102 @@
+
+
+.profile-container {
+    max-width: 800px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.5s ease forwards; /* Add fade-in animation */
+}
+
+.profile-info {
+    width: 100%;
+}
+
+
+.profile-picture {
+    background-color: transparent;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    color: #050505;
+    text-align: left;
+    padding: 10px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    color: #050505;
+    text-align: left;
+    padding: 10px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.profile-button {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 18px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+.profile-button:hover {
+    background-color: #333333;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

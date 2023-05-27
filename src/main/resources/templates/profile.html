@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+  <link rel="icon" href="../static/img/logo.png" th:src="@{/img/logo.png}">
+  <link rel="stylesheet" type="text/css" href="../static/main.css">
+  <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
+  <link rel="stylesheet" type="text/css" href="../static/profile.css" th:href="@{/main.css}">
+</head>
+<body>
+<header>
+  <a th:href="@{/}" href="/Touchit/templates/main.html?_ijt=8nv4k5sgt2rormobgmivm23if0&_ij_reload=RELOAD_ON_SAVE" class="logo">
+    <img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Company Logo">
+  </a>
+</header>
+<div class="profile-container">
+      <img src="../static/img/profile-picture.png" th:src="@{/img/profile-picture.png}" alt="Profile Picture" class="profile-picture">
+  <div class="profile-info">
+    <h2>User Profile</h2>
+    <p>Username: JohnDoe <button id="change-username-btn" class="profile-button">Change Username</button></p>
+    <p>Email: johndoe@example.com <button id="change-email-btn" class="profile-button">Change Email</button> </p>
+    <!-- Add more profile information here -->
+     <a href="/Touchit/templates/main.html?_ijt=8nv4k5sgt2rormobgmivm23if0&_ij_reload=RELOAD_ON_SAVE"><button id="logout-btn" class="profile-button">Logout</button></a>
+  </div>
+</div>
+
+
+
+
+<footer class="footer">
+  <p>&copy; Touchit!. All rights reserved.</p>
+</footer>
+</body>
+</html>

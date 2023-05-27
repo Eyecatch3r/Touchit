@@ -149,9 +149,9 @@ body {
 
 .return-button {
     position: relative;
-    top: -8px;
+    top: -6px;
     bottom: 5px;
-    left: -10px;
+    left: 5px;
     width: 50%;
     display: flex;
     justify-content: center;
@@ -179,4 +179,43 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+}
+
+
+.profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.result-image {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    object-fit: cover;
+    object-position: center;
+}
+
+.result.enlarge {
+    transform: scale(1.1); /* Increase the scale for the selected result */
+    z-index: 1;
+}
+
+.result.enlarge img {
+    filter: brightness(100%); /* Adjust the brightness for the selected result image */
+    transition: filter 0.3s ease-in-out;
+}
+
+.result.enlarge h3,
+.result.enlarge p {
+    opacity: 1; /* Show the text for the selected result */
+    transition: opacity 0.3s ease-in-out;
 }
