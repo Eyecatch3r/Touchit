@@ -6,6 +6,15 @@
     <link rel="stylesheet" type="text/css" href="../static/main.css">
     <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
     <script>
+        function animateSearchResults() {
+            var results = document.getElementsByClassName("result");
+
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                result.classList.add("animate");
+            }
+        }
+
         function showDescription(resultId) {
             var results = document.getElementsByClassName("result");
             for (var i = 0; i < results.length; i++) {
@@ -51,7 +60,7 @@
         }
     </script>
 </head>
-<body>
+<body onload="animateSearchResults()">
 <div class="header">
     <a th:href="@{/}" href="/Touchit/templates/main.html?_ijt=8nv4k5sgt2rormobgmivm23if0&_ij_reload=RELOAD_ON_SAVE" class="logo">
         <img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Company Logo">

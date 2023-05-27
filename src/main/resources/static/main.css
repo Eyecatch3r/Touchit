@@ -104,6 +104,26 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: calc(33.33% - 20px);
     box-sizing: border-box;
+    animation: fadeIn 0.5s ease forwards; /* Add fade-in animation */
+}
+.result {
+    /* Rest of your styles */
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: opacity 0.5s ease; /* Add transition for opacity */
+}
+
+.show {
+    opacity: 1; /* Set opacity to 1 to trigger the animation */
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .result.enlarge {
