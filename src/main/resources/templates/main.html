@@ -13,6 +13,10 @@
                 if (result.id !== resultId) {
                     result.style.display = "none";
                 }
+                else {
+                    result.getAttribute("onclick");
+                    result.removeAttribute("onclick");
+                }
             }
 
             var description = document.getElementById(resultId + "-description");
@@ -29,6 +33,7 @@
             var results = document.getElementsByClassName("result");
             for (var i = 0; i < results.length; i++) {
                 results[i].style.display = "block";
+                results[i].setAttribute("onclick", "showDescription('" + results[i].id + "')");
             }
 
             var descriptions = document.getElementsByClassName("description");
@@ -48,9 +53,9 @@
 </head>
 <body>
 <div class="header">
-    <div class="logo">
+    <a th:href="@{/}" href="/Touchit/templates/main.html?_ijt=8nv4k5sgt2rormobgmivm23if0&_ij_reload=RELOAD_ON_SAVE" class="logo">
         <img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Company Logo">
-    </div>
+    </a>
 </div>
 
 <div class="search-bar">
@@ -63,6 +68,7 @@
         <button class="return-button">Go Back</button>
     </div>
     <div class="result" id="result1" onclick="showDescription('result1')">
+
         <h3>Search Result 1</h3>
         <p>Description of the search result goes here.</p>
         <p id="result1-description" class="description" style="display: none;">Description of the product goes here.</p>
@@ -79,5 +85,10 @@
         <p id="result3-description" class="description" style="display: none;">Description of the product goes here.</p>
     </div>
 </div>
+
+<footer class="footer">
+    <p>&copy; Touchit!. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
