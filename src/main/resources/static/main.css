@@ -94,7 +94,7 @@ body {
     justify-content: flex-start;
 }
 .result {
-    background-color: #f1f1f1;
+    background-color: #DCDCDC;
     padding: 20px;
     margin-bottom: 10px;
     margin-left: 10px;
@@ -172,7 +172,7 @@ body {
 }
 
 .footer {
-    background-color: #f1f1f1;
+    background-color: #DCDCDC;
     color: #050505;
     text-align: left;
     padding: 10px;
@@ -225,7 +225,7 @@ body.dark-mode,
     color: #fff;
 }
 .footer {
-    background-color: #f1f1f1;
+    background-color: #E8E8E8;
     color: #050505;
     text-align: left;
     padding: 10px;
@@ -350,6 +350,7 @@ body.dark-mode,
 .dark-mode .header,
 .dark-mode .search-bar input[type="text"],
 .dark-mode .search-bar button,
+.dark-mode .profile-container,
 .dark-mode .search-results .result,
 .dark-mode .no-results-message {
     background-color: #444;
@@ -384,5 +385,37 @@ body.dark-mode,
     filter: brightness(5140%);
     transition: filter 0.5s ease;
 }
+.no-results-message {
+    display: none;
+}
+.no-results-container,
+.no-results-message{
+    background-color: #DCDCDC;
+    padding: 20px;
+    border-radius: 50px;
+    text-align: center;
+    width: 80%;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Dark mode variant */
+.dark-mode .no-results-container,
+.dark-mode .no-results-message{
+    background-color: #333;
+    border-radius: 50px;
+    color: #fff;
+
+}
+
+.no-results-container {
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: opacity 0.5s ease; /* Add transition for opacity */
+}
+
+.show {
+    opacity: 1; /* Set opacity to 1 to trigger the animation */
+}
+
+
 
 

@@ -3,8 +3,7 @@
 <head>
   <title>User Profile</title>
   <link rel="icon" href="../static/img/logo.png" th:src="@{/img/logo.png}">
-  <link rel="stylesheet" type="text/css" href="../static/main.css">
-  <link rel="stylesheet" type="text/css" th:href="@{/main.css}">
+  <link rel="stylesheet" href="../static/main.css" type="text/css" th:href="@{/main.css}">
   <link rel="stylesheet" type="text/css" href="../static/profile.css" th:href="@{/main.css}">
 </head>
 <body>
@@ -12,6 +11,19 @@
   <a th:href="@{/}" href="/Touchit/templates/main.html?_ijt=8nv4k5sgt2rormobgmivm23if0&_ij_reload=RELOAD_ON_SAVE" class="logo">
     <img th:src="@{/img/logo.png}" src="../static/img/logo.png" alt="Company Logo">
   </a>
+  <script>
+    // Retrieve the preferred mode from local storage and apply it on page load
+    window.addEventListener("DOMContentLoaded", function () {
+      const preferredMode = localStorage.getItem('mode');
+      const body = document.body;
+
+      if (preferredMode === 'dark') {
+        body.classList.add('dark-mode');
+        document.getElementById("darkModeToggle").checked = true;
+      }
+    });
+  </script>
+  <script src="../static/darkmode.js" defer></script>
 </header>
 <div class="profile-container">
       <img src="../static/img/profile-picture.png" th:src="@{/img/profile-picture.png}" alt="Profile Picture" class="profile-picture">
@@ -29,6 +41,11 @@
 
 <footer class="footer">
   <p>&copy; Touchit!. All rights reserved.</p>
+  <div class="dark-mode-toggle">
+    <div class="toggle-message">Dark Mode</div>
+    <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+    <label for="darkModeToggle" class="toggle-label"></label>
+  </div>
 </footer>
 </body>
 </html>

@@ -1,6 +1,5 @@
 function animateSearchResults() {
     var results = document.getElementsByClassName("result");
-
     for (var i = 0; i < results.length; i++) {
         var result = results[i];
         result.classList.add("animate");
@@ -49,10 +48,15 @@ function returnToResults(resultId) {
     }
 }
 
+function showNoResults() {
+    const noResultsContainer = document.getElementById('no-results-message');
+    noResultsContainer.style.display = 'block';
+    noResultsContainer.classList.add('show');
+}
+
 window.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.querySelector(".search-bar input");
     const searchResults = document.getElementsByClassName("result");
-    const darkModeToggle = document.getElementById("darkModeToggle");
 
     function searchProducts() {
         const keyword = searchInput.value.toLowerCase();
@@ -65,24 +69,17 @@ window.addEventListener("DOMContentLoaded", function () {
 
             if (resultId.includes(keyword) || resultName.includes(keyword) || resultDescription.includes(keyword)) {
                 result.style.display = "block";
+                result.classList.add("animate");
                 found = true;
             } else {
+                showNoResults();
                 result.style.display = "none";
             }
         });
 
-        if (!found) {
-            const noResultsMessage = document.getElementById("no-results-message");
-            noResultsMessage.style.display = "block";
-        } else {
-            const noResultsMessage = document.getElementById("no-results-message");
-            noResultsMessage.style.display = "none";
-        }
+        const noResultsMessage = document.getElementById("no-results-message");
+        noResultsMessage.style.display = found ? "none" : "block";
     }
 
     searchInput.addEventListener("input", searchProducts);
-
-    darkModeToggle.addEventListener("change", function () {
-        document.body.classList.toggle("dark-mode");
-    });
 });

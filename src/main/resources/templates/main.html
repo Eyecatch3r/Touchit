@@ -4,7 +4,20 @@
     <title>Touchit!</title>
     <link rel="icon" href="../static/img/logo.png" th:src="@{/img/logo.png}">
     <link rel="stylesheet" type="text/css" href="../static/main.css" th:href="@{/main.css}">
+    <script>
+        // Retrieve the preferred mode from local storage and apply it on page load
+        window.addEventListener("DOMContentLoaded", function () {
+            const preferredMode = localStorage.getItem('mode');
+            const body = document.body;
+
+            if (preferredMode === 'dark') {
+                body.classList.add('dark-mode');
+                document.getElementById("darkModeToggle").checked = true;
+            }
+        });
+    </script>
     <script src="../static/main.js" defer></script>
+    <script src="../static/darkmode.js" defer></script>
 </head>
 <body onload="animateSearchResults()">
 <div class="header">
@@ -45,11 +58,15 @@
         <p>Description of the search result goes here.</p>
         <p id="result3-description" class="description" style="display: none;">Description of the product goes here.</p>
     </div>
+
+
+    <div id="no-results-message" class="no-results-message no-results-container">
+        <div class="no-results-container">
+            <p>No results found.</p>
+        </div>
+    </div>
 </div>
 
-<div id="no-results-message" class="no-results-message" style="display: none;">
-    No results found.
-</div>
 
 <footer class="footer">
     <p>&copy; Touchit!. All rights reserved.</p>
